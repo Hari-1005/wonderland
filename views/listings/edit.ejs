@@ -1,0 +1,45 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+    <div class="container mt-3">
+        <div class="row">
+          <div class="col-8 offset-2">
+            <h3>Edit your listing</h3>
+          <form method="post" action="/listings/<%=data._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="listings[title]" value="<%= data.title%>" required>
+              </div>
+              <div class="mb-3">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea class="form-control" id="description" name="listings[description]" rows="3" placeholder="Description" required><%= data.description%></textarea>
+              </div>
+
+              <div class="mb-3">
+                  <img src="<%=originalUrl%>" alt="">
+              </div> 
+              <div class="mb-3">
+                  <label for="url" class="form-label">Upload New Image</label>
+                  <input type="file" class="form-control" id="url" name="listings[image]">
+              </div> 
+  
+              <div class="row">
+              <div class="mb-3 col-md-4">
+                  <label for="price" class="form-label">Price</label>
+                  <input type="number" class="form-control" id="price" name="listings[price]" value="<%= data.price%>" required>
+              </div>
+              <div class="mb-3 col-md-8">
+                  <label for="location" class="form-label">Location</label>
+                  <input type="text" class="form-control" id="location" name="listings[location]" value="<%= data.location%>" required>
+              </div>
+            </div>
+  
+              <div class="mb-3">
+                  <label for="country" class="form-label">Country</label>
+                  <input type="text" class="form-control" id="country" name="listings[country]" value="<%= data.country%>" required>
+              </div>
+              <button type="submit" class="btn btn-primary mb-4">Submit</button>
+          </form>
+        </div>
+        </div>
+      </div>
+</body>

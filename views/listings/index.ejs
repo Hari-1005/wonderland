@@ -1,0 +1,105 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+    <style>
+        .filters{
+            position:sticky;
+            top: 3.5rem;
+            background-color: white;
+            z-index: 1;
+        }
+        .filter{
+            text-align: center;
+            margin-right: 1.75rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .filter span{
+            font-size: 0.9rem;
+        }
+
+    </style>
+         <div class="filters mb-4 d-flex flex-wrap ">
+            <div class="filter">
+                <div><i class="fa-solid fa-fire"></i></div>
+                <span>Trending</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <span>Rooms</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <span>Iconic cities</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-hotel"></i></div>
+                <span>mansions</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-tree-city"></i></div>
+                <span>Top cities</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-water"></i></div>
+                <span>Lake</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <span>beach front</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <span>Mountains</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <span>Castles</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <span>Pools</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-campground"></i></div>
+                <span>Camping</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-sailboat"></i></div>
+                <span>Boats</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-regular fa-snowflake"></i></div>
+                <span>Arctic</span>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-kitchen-set"></i></div>
+                <span>kitchen</span>
+            </div>
+         </div>
+         <!--  -->
+         <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <% for(let data of alldata){ %>
+                <div class="col mycard">
+                    <div class="card border-0 h-100">
+                        <a href="/listings/<%= data._id%>" class="text-decoration-none">
+                            <img src="<%= data.image.url %>" class="card-img-top rounded-2" alt="<%= data.title %>" style="object-fit: cover; height: 15rem;">
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="card-title fs-5 text-black"><%= data.title %></h6>
+                                <h6 class="card-subtitle mb-2 text-black fw-medium">₹ <%= data.price.toLocaleString('en-IN')%> / night</h6>
+                                <p class="card-text fst-italic fw-normal text-black flex-grow-1"><%= data.description %></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    
+    <!--  -->
+
+</body>
